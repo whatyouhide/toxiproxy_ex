@@ -43,7 +43,7 @@ jobs:
         env:
           TOXIPROXY_VERSION: ${{ matrix.toxiproxy }}
         run: |
-          curl -L https://github.com/Shopify/toxiproxy/releases/download/$TOXIPROXY_VERSION/toxiproxy-server-linux-amd64 -o ./toxiproxy-server
+          curl -L --fail https://github.com/Shopify/toxiproxy/releases/download/v${TOXIPROXY_VERSION}/toxiproxy-server-linux-amd64 -o ./toxiproxy-server
           chmod +x ./toxiproxy-server
 
       - name: Show
