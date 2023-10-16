@@ -27,6 +27,7 @@ jobs:
           # Oldest supported version pair.
           - otp: "23.3"
             elixir: "1.10.4-otp-23"
+            toxiproxy: "2.1.2"
 
     env:
       TOXIPROXY_VERSION: ${{ matrix.toxiproxy }}
