@@ -32,9 +32,6 @@ jobs:
       TOXIPROXY_VERSION: ${{ matrix.toxiproxy }}
 
     steps:
-      - name: Echo
-        run: echo $TOXIPROXY_VERSION
-
       - name: Check out this repository
         uses: actions/checkout@v4
 
@@ -49,9 +46,6 @@ jobs:
         run: |
           curl -v -L --fail https://github.com/Shopify/toxiproxy/releases/download/v${TOXIPROXY_VERSION}/toxiproxy-server-linux-amd64 -o ./toxiproxy-server
           chmod +x ./toxiproxy-server
-
-      - name: Show
-        run: ls -la
 
       - name: Start Toxiproxy
         run: nohup bash -c "./toxiproxy-server > ./toxiproxy.log 2>&1 &"
