@@ -19,11 +19,11 @@ jobs:
           - "2.6.0"
           - "2.5.0"
           - "2.1.2"
+        elixir:
+          - "1.15"
+        otp:
+          - "26.1"
         include:
-          # Latest Erlang and Elixir
-          - otp: "26.1"
-            elixir: "1.15"
-
           # Oldest supported version pair.
           - otp: "23.3"
             elixir: "1.10.4-otp-23"
