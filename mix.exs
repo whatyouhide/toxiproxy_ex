@@ -15,7 +15,8 @@ defmodule ToxiproxyEx.MixProject do
       # Dialyzer
       dialyzer: [
         plt_local_path: "priv/plts",
-        plt_core_path: "priv/plts"
+        plt_core_path: "priv/plts",
+        plt_add_apps: [:ssl, :crypto, :mix, :ex_unit, :erts, :kernel, :stdlib],
       ],
 
       # Hex
