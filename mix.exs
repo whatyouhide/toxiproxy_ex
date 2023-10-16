@@ -40,9 +40,13 @@ defmodule ToxiproxyEx.MixProject do
       {:jason, ">= 1.0.0"},
       {:castore, "~> 1.0.3"},
       {:mint, "~> 1.0"},
-      {:ex_doc, "~> 0.23", only: :dev, runtime: false},
-      {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false}
-    ]
+      {:ex_doc, "~> 0.23", only: :dev, runtime: false}
+    ] ++
+      if Version.match?(System.version(), "~> 1.12") do
+        [{:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false}]
+      else
+        []
+      end
   end
 
   defp package do
