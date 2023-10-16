@@ -32,6 +32,9 @@ jobs:
       TOXIPROXY_VERSION: ${{ matrix.toxiproxy }}
 
     steps:
+      - name: Echo
+        run: echo $TOXIPROXY_VERSION
+
       - name: Check out this repository
         uses: actions/checkout@v4
 
