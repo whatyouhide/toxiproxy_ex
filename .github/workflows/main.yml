@@ -9,14 +9,16 @@ env:
 
 jobs:
   test:
+    name: Test (Erlang ${{ matrix.otp }}, Elixir ${{ matrix.elixir }}, Toxiproxy ${{ matrix.toxiproxy }})
+
     runs-on: ubuntu-20.04
 
     strategy:
       matrix:
         toxiproxy:
-          - "2.1.2"
-          - "2.5.0"
           - "2.6.0"
+          - "2.5.0"
+          - "2.1.2"
         include:
           # Latest Erlang and Elixir
           - otp: "26.1"
