@@ -28,6 +28,9 @@ jobs:
           - otp: "23.3"
             elixir: "1.10.4-otp-23"
 
+    env:
+      TOXIPROXY_VERSION: ${{ matrix.toxiproxy }}
+
     steps:
       - name: Check out this repository
         uses: actions/checkout@v4
@@ -40,8 +43,6 @@ jobs:
           version-type: strict
 
       - name: Install Toxiproxy
-        env:
-          TOXIPROXY_VERSION: ${{ matrix.toxiproxy }}
         run: |
           curl -v -L --fail https://github.com/Shopify/toxiproxy/releases/download/v${TOXIPROXY_VERSION}/toxiproxy-server-linux-amd64 -o ./toxiproxy-server
           chmod +x ./toxiproxy-server
