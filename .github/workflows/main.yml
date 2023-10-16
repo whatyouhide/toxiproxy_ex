@@ -45,10 +45,16 @@ jobs:
         run: |
           curl --silent -L https://github.com/Shopify/toxiproxy/releases/download/${TOXIPROXY_VERSION}/toxiproxy-server-linux-amd64 -o ./toxiproxy-server
           chmod +x ./toxiproxy-server
-          nohup bash -c "./toxiproxy-server > ./toxiproxy.log 2>&1 &"
+
+      - name: Start Toxiproxy
+        run: nohup bash -c "./toxiproxy-server > ./toxiproxy.log 2>&1 &"
 
       - name: Install dependencies
         run: mix deps.get
 
       - name: Run tests
         run: mix test
+
+      - name: Dump Toxiproxy logs on failure
+        if: failure()
+        run: cat ./toxiproxy.log
